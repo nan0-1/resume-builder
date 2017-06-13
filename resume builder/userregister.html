@@ -1,0 +1,29 @@
+<html>
+<head><h1>Register Page</h1></head>
+<body>
+<form id="form1">
+            Email:<input type="text"id="em"><br>
+            Password:<input type="password"id="pd">
+</form>
+<button id="butt1">Register</button>
+<script>
+      var x = document.getElementById("butt1");
+      var r1 = [];
+      x.addEventListener("click",submit);
+      function submit(){
+               var email = document.getElementById("em").value;
+               var password = document.getElementById("pd").value;
+               obj = new Object();
+               obj.emal = email;
+               obj.pss = password;
+               if (!localStorage.r1) { 
+               // default to empty array 
+               localStorage.r1 = JSON.stringify([]); }                                      
+               r1 = JSON.parse(localStorage.r1);
+               r1.push(obj);
+               console.log(r1);
+               localStorage.r1=JSON.stringify(r1);
+      }
+</script>
+</body>
+</html>

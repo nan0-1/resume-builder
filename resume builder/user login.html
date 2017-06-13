@@ -1,0 +1,52 @@
+<html>
+<head></head>
+<style>
+#Wholepage
+{
+    background-color: #DAF7A6;
+}
+  .container {
+    padding: 16px;
+}
+</style>
+<body>
+<div id = "Wholepage">
+<CENTER><h1>Resume Login Page</h1></CENTER>
+<form id="form1">
+            <CENTER>Name:<input type="text"id="em"></CENTER><br>
+            <CENTER>Password:<input type="password"id="pd"></CENTER><br>
+</form>
+<button id="butt1">Login</button>
+<button id="reg">Register</button>
+</body>
+<script>
+      var r1=[];
+      var x = document.getElementById("butt1");
+      var mail;
+      var l = document.getElementById("reg");
+      x.addEventListener("click",login);
+      l.addEventListener("click",regs);
+      function login(){
+               var email = document.getElementById("em").value;
+               var password = document.getElementById("pd").value;
+               if (!localStorage.r1) { 
+               // default to empty array 
+               localStorage.r1 = JSON.stringify([]); }                                      
+               r1 = JSON.parse(localStorage.r1);
+               console.log(r1);
+               var i=0;
+               while(i<r1.length){
+                     if(email == r1[i].emal&&password == r1[i].pss){
+                                  mail = email;
+                                  localStorage.mail=JSON.stringify(mail);
+                                  window.open("ResumeMainPage.html");
+                                  break;
+                    }
+i++;
+}
+}
+function regs(){
+  window.open("userregister.html");
+}                  
+</script>
+</html>

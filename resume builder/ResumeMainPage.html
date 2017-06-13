@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><title>Resume</title>
+<p id="p"></p>
+</head>
+<style>
+    #Wholepage
+{
+    background-color: #DAF7A6;
+}
+input[type=text]{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+</style>
+<body>
+<div id="Wholepage">
+<Center><b><h1>Resume Builder</h1></b></Center>
+<form>
+  <div class="container">
+    <label><b>Full Name :</b></label>
+    <input type="text" value="Enter Full Name" id="Fname"  required><br>
+    <label><b>Post :</b></label>
+    <input type="text" value="Enter Post" id="Post" required><br>
+    <label><b>Email :</b></label>
+    <input type="text" value="Enter Email" id="Email" required><br>
+    <label><b>Mobile Number :</b></label>
+    <input type="text" value="Enter Mobile Number" id="Mnumber" required><br>
+    <label><b>Address :</b></label>
+    <input type="text" value="Enter Address" id="Address" required><br>
+    <label><b>Objective</b></label>
+    <input type="text" id="obje"  required>
+    <label><b>Academic Projects</b></label>
+    <input type="text" id="AP"  required>
+    <h1>Enter Particulars Related To Your Education</h1>
+    <label><b>Qualification/Degree :</b></label>
+    <input type="text" id="Qd"  required>
+    <label><b>School/College</b></label>
+    <input type="text" id="SC"  required>
+    <label><b>University or Board</b></label>
+    <input type="text" id="UB"  required>
+    <label><b>YEAR</b></label>
+    <input type="text" id="Y"  required>
+  </div>
+</form>
+    <button id="butt1">Submit</button>
+    </div>
+    <button id="lo">LogOut</button>
+</body>
+<script>
+    var lb=document.getElementById("lo");
+    var p1 = document.getElementById("p");
+    var name = JSON.parse(localStorage.mail);
+    p1.innerHTML="Hi "+name+"!";
+    var x =  document.getElementById("butt1");
+    var r=[];
+    x.addEventListener("click",submit);
+    lb.addEventListener("click",logo);
+    function submit(){
+    var fn = document.getElementById("Fname").value;
+    var po = document.getElementById("Post").value;
+    var em = document.getElementById("Email").value;
+    var mb = document.getElementById("Mnumber").value;
+    var ad = document.getElementById("Address").value;
+    var qu = document.getElementById("Qd").value;
+    var sc = document.getElementById("SC").value;
+    var ub = document.getElementById("UB").value;
+    var y = document.getElementById("Y").value;
+    var ob = document.getElementById("obje").value;
+    var ap = document.getElementById("AP").value;
+    var obj = new Object();
+    obj.firstname = fn;
+    obj.post = po;
+    obj.email = em;
+    obj.Add = ad;
+    obj.deg = qu;
+    obj.sc = sc;
+    obj.ub = ub;
+    obj.ye = y;
+    obj.obji=ob;
+    obj.mob=mb;
+    obj.acp=ap;
+     if (!localStorage.r) { 
+               // default to empty array 
+               localStorage.r = JSON.stringify([]); }                                      
+               r = JSON.parse(localStorage.r);
+               r.push(obj);
+               console.log(r);
+               localStorage.r=JSON.stringify(r);
+    window.open("ViewResume.html");
+}
+ function logo(){
+ 	window.open("user login.html");
+ }
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume</title>
+<Center><b><h1>RESUME</h1></b></Center>
+<div id="main">
+<div id="name">
+</div>
+        <div class="SectionTitle">
+        <h1>Education</h1></div>
+        <div class="SectionContent">
+        <table width=40%><tr><th>Qualification/Degree</th><th>College</th><th>University</th><th>Year</th></tr>
+            <tr><td id="qd"></td>
+            <td id="cName" ></td>
+            <td id="UName"></td>
+            <td id="Year"></td></tr></table></div><br><br>
+<article><div id="obj"></div></article>
+<button id="Goback">Go Back To Make Resume</button>
+</div>
+<script>
+     var r;
+     var i=0;
+     var b=document.getElementById("Goback");
+     var bn = document.getElementById("name");
+     var uname = document.getElementById("UName");
+     var year = document.getElementById("Year");
+     var cname = document.getElementById("cName");
+     var quad = document.getElementById("qd");
+     var ob1 = document.getElementById("obj");
+     r=JSON.parse(localStorage.r);
+     window.addEventListener('load',bringinfo);
+     function bringinfo(){
+               console.log(r);
+               /*r[i]firstname = fn;
+               r[i].post = po;
+               r[i].email = em;
+               r[i].Add = ad;
+               r[i].Edu = E;
+               r[i].deg = qu;
+               r[i].sc = sc;
+               r[i].ub = ub;
+               r[i].ye=y;*/
+               for(i=0;i<r.length;i++){
+
+               bn.innerHTML="<b>First Name is:</b>   "+r[i].firstname+"<br><br>"+"<b>Post is:</b>  "+r[i].post+"<br><br>"+"<b>Address is:</b>  "+r[i].Add+"<br><br>"+"<b>Email is :</b> "+r[i].email+"<br><br>"+"<b>Mobile no. is:</b> "+r[i].mob+"<br><br>"+"<b>Academic Project:</b> "+r[i].acp;
+               quad.innerHTML=r[i].deg;
+               cname.innerHTML=r[i].sc;
+               uname.innerHTML=r[i].ub;
+               year.innerHTML=r[i].ye;
+               ob1.innerHTML="<b>Objective :</b>"+r[i].obji+"<br><br>";
+           }
+      }
+      b.addEventListener('click',goback);
+      function goback(){
+                window.open("ResumeMainPage.html");       
+}
+</script>
+</head>
+</html>
